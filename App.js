@@ -2,19 +2,26 @@ import React from 'react';
 import { createDrawerNavigator } from 'react-navigation';
 import GraphScreen from './src/Screens/GraphScreen';
 import WebViewCookies from './src/Screens/WebViewCookies';
+import WebViewCookies2 from './src/Screens/WebViewCookies2';
 import CookiesManagerTest from './src/Screens/CookiesManagerTest';
 
 const DrawerNavigator = createDrawerNavigator({
+  CookiesManagerTest: {
+    screen: CookiesManagerTest,
+    navigationOptions: () => ({
+      drawerLabel: 'CookiesManger Test'
+    })
+  },
   WebViewCookies: {
     screen: WebViewCookies,
     navigationOptions: () => ({
       drawerLabel: 'WebView Cookies'
     })
   },
-  CookiesManagerTest: {
-    screen: CookiesManagerTest,
+  WebViewCookies2: {
+    screen: WebViewCookies2,
     navigationOptions: () => ({
-      drawerLabel: 'CookiesManger Test'
+      drawerLabel: 'WebView Cookies 2'
     })
   },
   GraphScreen: {
