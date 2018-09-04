@@ -1,20 +1,23 @@
 import React from 'react';
 import { createDrawerNavigator } from 'react-navigation';
 import GraphScreen from './src/Screens/GraphScreen';
+import WebViewCookies from './src/Screens/WebViewCookies';
 
 const DrawerNavigator = createDrawerNavigator({
-  GraphScreen: {
-    screen: GraphScreen,
-    navigationOptions: ({ navigation }) => ({
-      drawerLabel: 'Graph Screen'
+  WebViewCookies: {
+    screen: WebViewCookies,
+    navigationOptions: () => ({
+      drawerLabel: 'WebView Cookies'
     })
   },
+  GraphScreen: {
+    screen: GraphScreen,
+    navigationOptions: () => ({
+      drawerLabel: 'Graph Screen'
+    })
+  }
 });
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <DrawerNavigator />
-    );
-  }
+export default function App() {
+  return <DrawerNavigator />;
 }
