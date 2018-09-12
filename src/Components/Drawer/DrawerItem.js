@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
 export default function DrawerItem(props) {
   const {
-    routeName, label, navigateToScreen, isFocused
+    routeName, label, onDrawerItemPressed, isFocused
   } = props;
 
   const drawerContainerStyle = [styles.drawerItemContainer];
@@ -35,7 +35,7 @@ export default function DrawerItem(props) {
   return (
     <TouchableOpacity
       style={drawerContainerStyle}
-      onPress={() => navigateToScreen(routeName)}
+      onPress={() => onDrawerItemPressed(routeName)}
     >
       <View>
         <Text style={textStyle}>{label}</Text>

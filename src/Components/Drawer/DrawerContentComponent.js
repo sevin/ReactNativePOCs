@@ -31,7 +31,7 @@ export default class DrawerContentComponent extends React.Component {
           isFocused={navigation.isFocused(key)}
           routeName={descriptor.key}
           label={descriptor.options.drawerLabel}
-          navigateToScreen={(route) => {
+          onDrawerItemPressed={(route) => {
             this.navigateToScreen(route);
           }}
         />
