@@ -12,12 +12,14 @@ export default class DrawerContentComponent extends React.Component {
     });
 
     const { navigation } = this.props;
+    // navigation.closeDrawer();
+    console.log('drawer navigation props: ', navigation);
     navigation.dispatch(navigateAction);
   }
 
   render() {
     // console.log('DrawerContentComponent props: ', this.props);
-    const { descriptors } = this.props;
+    const { descriptors, navigation } = this.props;
     // console.log('this.props.descriptors: ', descriptors);
     const drawerContent = [];
 
@@ -26,6 +28,7 @@ export default class DrawerContentComponent extends React.Component {
       drawerContent.push(
         <DrawerItem
           key={key}
+          isFocused={navigation.isFocused(key)}
           routeName={descriptor.key}
           label={descriptor.options.drawerLabel}
           navigateToScreen={(route) => {

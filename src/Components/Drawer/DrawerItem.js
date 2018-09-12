@@ -6,19 +6,39 @@ import {
 const styles = StyleSheet.create({
   drawerItemContainer: {
     padding: 10,
+    marginVertical: 3
+  },
+  selectedDrawerItemContainer: {
+    backgroundColor: 'lightgray'
+  },
+  text: {
+    fontWeight: 'bold',
+    color: 'black'
+  },
+  selectedText: {
+    color: 'blue'
   }
 });
 
 export default function DrawerItem(props) {
-  const { routeName, label, navigateToScreen } = props;
+  const {
+    routeName, label, navigateToScreen, isFocused
+  } = props;
+
+  const drawerContainerStyle = [styles.drawerItemContainer];
+  const textStyle = [styles.text];
+  if (isFocused) {
+    drawerContainerStyle.push(styles.selectedDrawerItemContainer);
+    textStyle.push(styles.selectedText);
+  }
 
   return (
     <TouchableOpacity
-      style={styles.drawerItemContainer}
+      style={drawerContainerStyle}
       onPress={() => navigateToScreen(routeName)}
     >
       <View>
-        <Text>{label}</Text>
+        <Text style={textStyle}>{label}</Text>
       </View>
     </TouchableOpacity>
   );
