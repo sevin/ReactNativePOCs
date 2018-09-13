@@ -20,18 +20,18 @@ export default class WebViewCookies2 extends React.Component {
         <WebView
           source={{ uri }}
           onLoadEnd={(obj) => {
-            console.log('onLoadEnd');
+            // console.log('onLoadEnd');
             // console.log('obj', obj);
-            console.log('obj.nativeEvent: ', obj.nativeEvent);
+            // console.log('obj.nativeEvent: ', obj.nativeEvent);
             const { nativeEvent: { url } } = obj;
-            console.log('url: ', url);
+            // console.log('url: ', url);
             CookieManager.get(url)
               .then((res) => {
-                console.log('CookieManager.get =>', res); // => 'user_session=abcdefg; path=/;'
+                // console.log('CookieManager.get =>', res); // => 'user_session=abcdefg; path=/;'
                 this.setState({ onLoadEndUrl: url, cookie: res });
               })
               .catch((err) => {
-                console.log('CookieManger.get error =>', err);
+                // console.log('CookieManger.get error =>', err);
                 this.setState({ onLoadEndUrl: url, cookie: err });
               });
           }}
